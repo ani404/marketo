@@ -13,5 +13,6 @@ class Product (
     var id: Long? = null,
 
     var name: String? = null,
-    var price: Double? = null
+    var price: Double? = null,
+    var quantity: Int? = null
 )
