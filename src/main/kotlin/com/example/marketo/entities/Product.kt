@@ -10,7 +10,7 @@ class Product (
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    var id: Long? = null,
+    var id: Int? = null,
 
     var name: String? = null,
     var price: Double? = null,
