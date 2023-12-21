@@ -15,11 +15,7 @@ class ProductService(private val productRepository: ProductRepository) {
     fun updateProduct(product: Product): Product = productRepository.save(product)
 
     fun createProduct(product: Product): Product {
-        if (product.id != null || product.name != null || product.price != null) {
-            return productRepository.save(product)
-        } else {
-            throw IllegalArgumentException("At least one field in the Product must not be null")
-        }
+        return productRepository.save(product)
     }
 
     fun deleteProductById(id: Long) {
