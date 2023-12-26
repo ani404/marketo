@@ -24,14 +24,14 @@ class ProductController(private val productRepository: ProductRepository) {
 
     // @GetMapping("/products/{id}")
     @GetMapping("/products/{id}")
-    fun getProductById(@PathVariable id: Long): ResponseEntity<Product> {
+    fun getProductById(@PathVariable id: Int): ResponseEntity<Product> {
         val product = productRepository.findById(id)
         return product.map { ResponseEntity.ok(it) }.orElse(ResponseEntity.notFound().build())
     }
 
     //@putMapping("/products/{id}")
     @PutMapping("/products/{id}")
-    fun updateProductById(@PathVariable id: Long, @RequestBody updatedProduct: Product): ResponseEntity<Product> {
+    fun updateProductById(@PathVariable id: Int, @RequestBody updatedProduct: Product): ResponseEntity<Product> {
         return if (productRepository.existsById(id)) {
             updatedProduct.id = id // Assuming 'id' is a field in the Product class
             val savedProduct = productRepository.save(updatedProduct)

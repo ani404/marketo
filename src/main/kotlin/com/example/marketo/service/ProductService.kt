@@ -10,7 +10,7 @@ class ProductService(private val productRepository: ProductRepository) {
 
     fun getAllProducts(): MutableIterable<Product> = productRepository.findAll()
 
-    fun getProductById(id: Long): Optional<Product> = productRepository.findById(id)
+    fun getProductById(id: Int): Optional<Product> = productRepository.findById(id)
 
     fun updateProduct(product: Product): Product = productRepository.save(product)
 
@@ -22,7 +22,7 @@ class ProductService(private val productRepository: ProductRepository) {
         }
     }
 
-    fun deleteProductById(id: Long) {
+    fun deleteProductById(id: Int) {
         productRepository.deleteById(id)
     }
 }
